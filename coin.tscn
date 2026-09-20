@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bnrld5x5brdkh"]
+
+[ext_resource type="Script" uid="uid://b6i663664pck2" path="res://coin.gd" id="1_0t63x"]
+[ext_resource type="Texture2D" uid="uid://docbwe4d16x2q" path="res://assets/decoration_atlas.png" id="2_v7riw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fmgyj"]
+radius = 16.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmgyj"]
+atlas = ExtResource("2_v7riw")
+region = Rect2(348, 632, 108, 106)
+
+[node name="Coin" type="Area2D" unique_id=1530249062 groups=["coins"]]
+script = ExtResource("1_0t63x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=549591836]
+shape = SubResource("CircleShape2D_fmgyj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1108055904]
+scale = Vector2(0.3, 0.3)
+texture = SubResource("AtlasTexture_fmgyj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
